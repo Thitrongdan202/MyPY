@@ -19,7 +19,8 @@ class NVVP(NhanVien):
 
         self.__so_ng = kwargs.get('so_ng, 0')
     def __str__(self):
-        return "NVVP: " + super().__str__() + " Số ngày: " + str(self.__so_ng)
+        return ("NVVP: " + super().__str__() + \
+                " Số ngày: " + str(self.__so_ng))
 
     def tinh_luong_ht(self):
         pass
@@ -62,6 +63,13 @@ class CongTy:
         def print_ds_nv(self):
             for nv in self.__ds:
                 print(nv)
+
+        # Câu 4: Tìm nhân viên theo mã nhân viên
+        def tim_nv_manv(self, manv):
+            for nv in self.__ds:
+                if manv == nv._ma_nv:
+                    return nv
+
 if __name__ == '__main__':
     ct = CongTy(369, "Tesla")
 
@@ -80,3 +88,13 @@ if __name__ == '__main__':
 
     bh1 = NVBH(124, ho_ten="Nguyễn Văn H", luong_cb=2_000_000, so_sp=20)
     print(bh1)
+
+    print("\nTest: 4.Tìm nhân viên theo mã nhân viên")
+    nv = ct.tim_nv_manv(123)
+    print("\t Nhan viên: ", nv)
+    print("\t Nhan viên: ", ct.tim_nv_manv(124))
+
+    if ct.tim_nv_manv(125):
+        print("Tìm thấy")
+    else:
+        print("Không thấy")
