@@ -19,7 +19,8 @@ class NVVP(NhanVien):
 
         self.so_ng = kwargs.get('so_ng, 0')
     def __str__(self):
-        return "NVVP: " + super().__str__() + " Số ngày: " + str(self.so_ng)
+        return ("NVVP: " + super().__str__() + \
+                " Số ngày: " + str(self.so_ng))
 
     def tinh_luong_ht(self):
         pass
